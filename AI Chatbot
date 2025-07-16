@@ -1,0 +1,39 @@
+import nltk
+import random
+import string
+
+# Download required resources
+nltk.download('punkt')
+nltk.download('wordnet')
+
+from nltk.stem import WordNetLemmatizer
+
+# Initial setup
+lemmatizer = WordNetLemmatizer()
+
+# Sample training data
+greetings = ['hi', 'hello', 'hey', 'hola']
+responses = ['Hello!', 'Hi there!', 'Greetings!', 'How can I help you?']
+
+# Define chatbot response
+def respond(user_input):
+    user_input = user_input.lower()
+    tokens = nltk.word_tokenize(user_input)
+    tokens = [lemmatizer.lemmatize(word) for word in tokens if word not in string.punctuation]
+    
+    # Simple greeting recognition
+    for word in tokens:
+        if word in greetings:
+            return random.choice(responses)
+    
+    # Fallback response
+    return "Sorry, I didn't understand that. Can you rephrase?"
+
+# Chat loop
+print("Chatbot: Hello! Type 'exit' to end the chat.")
+while True:
+    user_input = input("You: ")
+    if user_input.lower() in ['exit', 'quit', 'bye']:
+        print("Chatbot: Goodbye!")
+        break
+    print("Chatbot:", respond(user_input))
