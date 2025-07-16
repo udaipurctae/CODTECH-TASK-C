@@ -1,3 +1,5 @@
+NAME: SAHIL LABANA INTERNSHIP @ CODETECH IT SOLUTIONS DOMAIN: PYTHON PROGRAMMING DURATION: 17th June 2025 to 17th July 2025
+
 Simple Overview of Internship Task 3 – AI Chatbot with NLP
 Objective:
 Build a basic chatbot using NLP (Natural Language Processing) libraries like NLTK or spaCy.
